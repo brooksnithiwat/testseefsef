@@ -1,0 +1,189 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: "Monospace", "Courier New", monospace ,"Noto Sans Thai";
+    font-weight: lighter; */
+    font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+body{
+    background:url(bg.webp); 
+    color: aliceblue;
+    scroll-behavior: smooth;
+}
+@keyframes stretch {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+.top-text {
+    background-color: rgb(246, 246, 246);
+    color: black;
+    text-align: center;
+    font-size: 40px;
+    position: relative;
+    overflow: hidden;
+    
+}
+.top-text::after {
+    align-items: center;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: auto; /* กำหนดความยาวเท่ากับข้อความ */
+    height: 2px; /* ความสูงของเส้น */
+    background-color: rgb(131, 15, 15); /* สีของเส้น */
+    animation: stretch 2s infinite; /* ใช้ animation ชื่อ stretch ความยาว 2 วินาที และเป็นการทำซ้ำไม่มีจำกัด */
+
+}
+.centered-input {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Adjust as needed */
+
+}
+.search-box{
+    border-radius: 20px;
+    text-indent: 20px;
+}
+.search-icon{
+    margin-top: -8px;
+    cursor: pointer;
+    font-size: 40px;
+    border-radius: 20px;
+    margin-left: 10px; 
+    transition: .5s;
+}
+.search-icon:hover{
+background-color:rgb(131, 15, 15);
+}
+.centered-input input[type="text"] {
+    width: 300px; /* Adjust as needed */
+    width: 400px; /* Increase the width */
+    height: 40px; /* Increase the height */
+    font-size: 18px; /* Increase the font size */
+    margin-bottom: 10px;
+}
+.search-button {
+    color: rgb(131, 15, 15);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px; /* Padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 4px 4px 2px; /* Adjust margin-right here */
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners */
+    transition-duration: 0.4s;
+    margin-bottom: 30px;
+}
+.search-button img{
+    height: 40px;
+    width: auto;
+}
+
+.search-button:hover {
+    color: rgb(131, 15, 15);
+    font-weight: bold;
+    background-color: rgb(194, 193, 193);
+    border: 5px solid rgb(255, 255, 255);
+}
+
+#results {
+    display: flex; /* ใช้ flexbox */
+    flex-wrap: wrap; /* อนุญาตให้สิ่งของในคอนเทนเนอร์ย้ายบรรทัด */
+    gap: 10px; /* ช่องว่างระหว่างผลลัพธ์ */
+    align-items: center;
+    justify-content: center;
+
+  }
+  
+  /* รูปแบบของแต่ละกล่องผลลัพธ์ */
+
+
+  /* รูปแบบของแต่ละกล่องผลลัพธ์ */
+  .result-item {
+
+    display: flex; /* ใช้ flexbox สำหรับการจัดการภายใน */
+    flex-direction: column; /* ตั้งค่าการจัดเรียงให้เป็นแนวตั้ง */
+    align-items: center; /* จัดกึ่งกลางเนื้อหา */
+    text-align: center; /* จัดกึ่งกลางข้อความ */
+    width: 400px; /* กำหนดความกว้างของแต่ละผลลัพธ์ */
+    border: 1px solid #ccc; /* กำหนดขอบ */
+    padding: 10px; /* กำหนดการเว้นระยะภายใน */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* เพิ่มเงาให้กับกล่อง */
+    background-color: #ffffff; /* สีพื้นหลัง */
+  }
+
+  /* กำหนดรูปแบบของภาพในผลลัพธ์ */
+  .result-image {
+    width: 100%; /* กำหนดความกว้างของภาพให้เต็มพื้นที่ของกล่อง */
+    height: 500px; /* รักษาสัดส่วนของภาพ */
+    object-fit: cover; /* ปรับขนาดภาพให้เต็มกรอบโดยการครอปส่วนที่เกิน */
+    object-position: center; /* จัดตำแหน่งภาพให้อยู่ตรงกลางกรอบ */
+  }
+
+
+
+  @media (max-width: 400px) {
+    .result-item {
+      width: 100%; /* Make result items full width on small screens */
+      max-width: 100%; /* Prevent items from exceeding viewport width */
+    }
+
+    .result-image {
+      max-width: 100%; /* Allow images to scale down with container width */
+    }
+  }
+
+
+
+
+
+.character-name {
+    font-weight: bold;
+    color: #000000;
+    font-size: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 576px) {
+    .search-button {
+    margin-top: -5px;
+    padding: 10px 16px; /* Padding */ 
+}
+}
+.anime-logo {
+    display: block; /* ทำให้แท็ก <img> เป็นบล็อกเพื่อให้การจัดตำแหน่งถูกต้อง */
+    width: 200px; /* หรือขนาดที่ต้องการ */
+    height: auto; /* คงสัดส่วนภาพ */
+  }
+
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
